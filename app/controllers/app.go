@@ -18,3 +18,7 @@ type App struct {
 func (c App) Index() revel.Result {
 	return c.Render()
 }
+
+func (c App) Post(myMsg string) revel.Result {
+	return c.Render(myMsg)
+}
