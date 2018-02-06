@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "bkbxOJH3GZoi5QEXu9MpNeWZ8Jo=",
+			"path": "github.com/confluentinc/confluent-kafka-go/kafka",
+			"revision": "467fbeaba03c316f7799e3ae3ae25a91fafa9946",
+			"revisionTime": "2017-12-15T11:38:03Z"
+		}
+	],
+	"rootPath": "github.com/agnaite/chatboat"
+}
