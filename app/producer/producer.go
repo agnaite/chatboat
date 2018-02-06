@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func Producer() {
+func Producer(msg string) {
 
 	broker := "localhost:9092"
 	topic := "test"
@@ -42,8 +42,7 @@ func Producer() {
 		}
 	}()
 
-	value := "Hello Go!"
-	p.ProduceChannel() <- &kafka.Message{TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny}, Value: []byte(value)}
+	p.ProduceChannel() <- &kafka.Message{TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny}, Value: []byte(msg)}
 
 	// wait for delivery report goroutine to finish
 	_ = <-doneChan

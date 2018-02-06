@@ -7,7 +7,6 @@ import (
 )
 
 func init() {
-	go producer.Producer()
 	go consumer.Consumer()
 }
 
@@ -20,5 +19,6 @@ func (c App) Index() revel.Result {
 }
 
 func (c App) Post(myMsg string) revel.Result {
+	producer.Producer(myMsg)
 	return c.Render(myMsg)
 }
