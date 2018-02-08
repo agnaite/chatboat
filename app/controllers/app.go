@@ -1,10 +1,9 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/agnaite/chatboat/app/producer"
 	"github.com/revel/revel"
-	//"time"
+	"net/http"
 )
 
 func init() {
@@ -17,15 +16,20 @@ type App struct {
 var feed []string
 
 func (c App) Index() revel.Result {
-	return c.Render(feed)
+	return c.Render()
 }
 
-func (c App) Post(myMsg string) revel.Result {
+func (c App) EnterChat(user string) revel.Result {
+	return c.Redirect("/websocket/room?user=%s", user)
+}
+
+func (c App) Post(w http.ResponseWriter, r *http.Request) revel.Result {
+	params := r.URL.Query()
+	myMsg := params.Get("msg")
 	producer.Producer(myMsg)
-	return c.Redirect(App.Index)
+	return c.Redirect("/")
 }
 
 func Publish(myMsg string) {
 	feed = append(feed, myMsg)
-	fmt.Println("in PUBLISH ", myMsg)
 }

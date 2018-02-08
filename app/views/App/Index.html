@@ -17,11 +17,14 @@
     </div>
   </div>
 
-  <h1>{{.feed}}</h1>
-  <div class="row">
-    <form class="span2" action="/App/Post" method="GET">
-      <input type="text" name="myMsg" /><br/>
-      <input type="submit" value="Post" />
+  <div id="signin">
+    <form action="/App/EnterChat">
+      <p>
+        <label for="nick">Choose a nick name</label>
+        <input type="text" name="user" id="user">
+      </p>
+        <input type="submit" id="enter" value="Enter the chat room">
+      </p>
     </form>
   </div>
 </div>
