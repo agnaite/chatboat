@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/agnaite/chatboat/app/consumer"
 	"github.com/revel/revel"
 )
 
@@ -28,6 +29,8 @@ func init() {
 		revel.CompressFilter,          // Compress the result.
 		revel.ActionInvoker,           // Invoke the action.
 	}
+
+	go consumer.Consumer()
 
 	// Register startup functions with OnAppStart
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script

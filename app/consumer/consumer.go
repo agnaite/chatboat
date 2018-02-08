@@ -2,6 +2,7 @@ package consumer
 
 import (
 	"fmt"
+	"github.com/agnaite/chatboat/app/controllers"
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"os"
 	"os/signal"
@@ -23,7 +24,7 @@ func Consumer() {
 		"session.timeout.ms":              6000,
 		"go.events.channel.enable":        true,
 		"go.application.rebalance.enable": true,
-		"default.topic.config":            kafka.ConfigMap{"auto.offset.reset": "earliest"}})
+		"default.topic.config":            kafka.ConfigMap{"auto.offset.reset": "smallest"}})
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to create consumer: %s\n", err)
@@ -53,6 +54,7 @@ func Consumer() {
 			case *kafka.Message:
 				fmt.Printf("%% Message on %s:\n%s\n",
 					e.TopicPartition, string(e.Value))
+				controllers.Publish(string(e.Value) + "⛵️")
 			case kafka.PartitionEOF:
 				fmt.Printf("%% Reached %v\n", e)
 			case kafka.Error:

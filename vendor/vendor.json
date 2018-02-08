@@ -7,6 +7,12 @@
 			"path": "github.com/confluentinc/confluent-kafka-go/kafka",
 			"revision": "467fbeaba03c316f7799e3ae3ae25a91fafa9946",
 			"revisionTime": "2017-12-15T11:38:03Z"
+		},
+		{
+			"checksumSHA1": "qWSfv6nFxKXv9aIvOB/A+oJ47a8=",
+			"path": "github.com/gorilla/websocket",
+			"revision": "4ac909741dfa57448bfadfdbca0cf7eeaa68f0e2",
+			"revisionTime": "2018-02-01T01:52:56Z"
 		}
 	],
 	"rootPath": "github.com/agnaite/chatboat"
