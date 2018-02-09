@@ -13,6 +13,12 @@
 			"path": "github.com/gorilla/websocket",
 			"revision": "4ac909741dfa57448bfadfdbca0cf7eeaa68f0e2",
 			"revisionTime": "2018-02-01T01:52:56Z"
+		},
+		{
+			"checksumSHA1": "rxt7CuhiNxzmbEOzMJZn4DH0J1I=",
+			"path": "github.com/revel/examples/chat/app/chatroom",
+			"revision": "f4e5bf6c92e15e183f76abc2c57fefbe8181ba15",
+			"revisionTime": "2018-02-05T16:15:50Z"
 		}
 	],
 	"rootPath": "github.com/agnaite/chatboat"

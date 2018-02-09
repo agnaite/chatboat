@@ -2,11 +2,12 @@ package consumer
 
 import (
 	"fmt"
-	"github.com/agnaite/chatboat/app/controllers"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/agnaite/chatboat/app/controllers"
+	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 func Consumer() {
@@ -54,7 +55,7 @@ func Consumer() {
 			case *kafka.Message:
 				fmt.Printf("%% Message on %s:\n%s\n",
 					e.TopicPartition, string(e.Value))
-				controllers.Publish(string(e.Value) + "⛵️")
+				controllers.Publish(string(e.Value)+"⛵️", string(e.Key))
 			case kafka.PartitionEOF:
 				fmt.Printf("%% Reached %v\n", e)
 			case kafka.Error:
