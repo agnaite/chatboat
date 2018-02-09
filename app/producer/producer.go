@@ -9,7 +9,7 @@ import (
 func Producer(msg string, user string) {
 
 	broker := "localhost:9092"
-	topic := "test"
+	topic := "chatboat"
 
 	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": broker})
 

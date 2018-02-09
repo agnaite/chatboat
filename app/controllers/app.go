@@ -32,6 +32,7 @@ func Publish(myMsg string, user string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	if _, err := ws.Write([]byte(myMsg)); err != nil {
 		log.Fatal(err)
 	}
