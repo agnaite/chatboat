@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/agnaite/chatboat/app/producer"
@@ -18,10 +17,10 @@ func (c WebSocket) Room(user string) revel.Result {
 }
 
 func (c WebSocket) Post(w http.ResponseWriter, r *http.Request) revel.Result {
-	fmt.Println("am i here")
 	myMsg := c.Params.Form.Get("msg")
+	user := c.Params.Form.Get("user")
 
-	producer.Producer(myMsg)
+	producer.Producer(myMsg, user)
 	return nil
 }
 
