@@ -1,0 +1,92 @@
+.navbar.navbar-default {
+  border: none;
+  background-color: #4286f4;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-text {
+  color: white;
+}
+
+.navbar-default .navbar-link {
+  color: white;
+  margin-right: 20px;
+}
+
+#newMessage {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 60px;
+    height: 60px;
+}
+
+#newMessage #message {
+    width: 70%;
+    padding: 5px;
+}
+
+#thread {
+    border: 1px solid #f0f0f0;
+    position: fixed;
+    top: 100px;
+    left: 14px;
+    right: 14px;
+    bottom: 160px;
+    background: white;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.message {
+    position: relative;
+}
+
+.message h2 {
+    color:  #7FDBFF;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    text-align: right;
+}
+
+.message p {
+    font-size: 13px;
+    padding: 5px;
+    margin: 0 0 0 110px;
+}
+
+.message.you h2 {
+  color: #001f3f;
+}
+
+.message.notice * {
+  color: #AAA;
+}
+
+.message.important * {
+    background: #c00;
+    color: #fff;
+}
+
+.message.notice h2 {
+    visibility: hidden;
+}
+
+.message.notice p {
+    margin: 0;
+    padding-left: 115px;
+}
+
+
