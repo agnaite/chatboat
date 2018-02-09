@@ -60,7 +60,7 @@
   }
   $('#send').click(function(e) {
     var message = $('#message').val()
-    $.post('Websocket/Post', {msg: message, user:{{.user}}}, (r)=>{})
+    $.post('Websocket/Post', {msg: encodeURI(message), user:encodeURI({{.user}})}, (r)=>{})
     $('#message').val('')
   });
   $('#message').keypress(function(e) {

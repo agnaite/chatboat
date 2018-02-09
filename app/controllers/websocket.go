@@ -25,7 +25,6 @@ func (c WebSocket) Post(w http.ResponseWriter, r *http.Request) revel.Result {
 }
 
 func (c WebSocket) SendMsg(user string, msg string, ws revel.ServerWebSocket) revel.Result {
-
 	chatroom.Say(user, msg)
 	return nil
 }
