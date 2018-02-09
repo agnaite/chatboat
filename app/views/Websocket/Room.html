@@ -62,11 +62,11 @@
     //e.preventDefault()
     var message = $('#message').val()
     $.post('Websocket/Post', {msg: message}, (r)=>{
-      console.log('sup')
+      console.log(r)
     })
 
     $('#message').val('')
-    socket.send(message)
+    socket.send(JSON.stringify(message))
   });
   $('#message').keypress(function(e) {
     if(e.charCode == 13 || e.keyCode == 13) {

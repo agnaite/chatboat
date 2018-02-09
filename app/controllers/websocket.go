@@ -2,10 +2,11 @@ package controllers
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/agnaite/chatboat/app/producer"
 	"github.com/revel/examples/chat/app/chatroom"
 	"github.com/revel/revel"
-	"net/http"
 )
 
 type WebSocket struct {
@@ -18,8 +19,8 @@ func (c WebSocket) Room(user string) revel.Result {
 
 func (c WebSocket) Post(w http.ResponseWriter, r *http.Request) revel.Result {
 	fmt.Println("am i here")
-	myMsg := r.FormValue("msg")
-	//fmt.Printf("THIS: %T", myMsg)
+	myMsg := c.Params.Form.Get("msg")
+
 	producer.Producer(myMsg)
 	return nil
 }
