@@ -12,7 +12,6 @@
      <p class="navbar-text navbar-right"><a href="/" class="navbar-link">Leave the chat room</a></p>
   </div>
 </nav>
-
 <div id="thread" class="container">
   <script type="text/html" id="message_tmpl">
     {{raw "<%"}} if(event.Type == 'message') { %>
@@ -45,14 +44,15 @@
       </div>
     {{raw "<%"}} } %>
   </script>
+
   <div class="form-inline">
     <div id="newMessage" class="container form-group">
       <input type="text" id="message" autocomplete="off" class="form-control" autofocus>
       <input type="submit" value="send" id="send" class="btn btn-default">
     </div>
+  </div>
 </div>
-</div>
-
+<img id="gif" src="https://media2.giphy.com/media/26tPix0jJybZ8BFkc/giphy.gif">
 <script type="text/javascript">
   // Create a socket
   var socket = new WebSocket('ws://'+window.location.host+'/websocket/room/socket?user={{.user}}')
