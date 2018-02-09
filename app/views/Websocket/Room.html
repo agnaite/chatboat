@@ -65,6 +65,13 @@
     });
   }
 
+  function bye_gif() {
+    var sticker_url = "https://media.giphy.com/media/RKPdwOKbVDEkg/giphy.gif";
+    $("#gif").attr('src', sticker_url);
+    $("#gif").show();
+    setTimeout(() => $("#gif").fadeOut(2000), 3000);
+  }
+
   // Create a socket
   var socket = new WebSocket('ws://'+window.location.host+'/websocket/room/socket?user={{.user}}')
   // Display a message
@@ -74,7 +81,9 @@
     if (event.Text.toLowerCase() == "random gif ⛵️") {
       do_gif()
     }
-    console.log(event.Text)
+    if (event.Type == 'leave') {
+      bye_gif()
+    }
   }
   //Message received on the socket
     socket.onmessage = function(event) {
