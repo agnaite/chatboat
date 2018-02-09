@@ -1,3 +1,8 @@
+a:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
 #gif {
   position: absolute;
   left: 40%;

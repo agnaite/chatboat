@@ -1,4 +1,4 @@
-{{set . "title" "Chat room"}}
+{{set . "title" "chatroom"}}
 {{template "header.html" .}}
 
 <nav class="navbar navbar-default">
@@ -57,7 +57,7 @@
 
   function do_gif() {
     var giphy = $.get("http://api.giphy.com/v1/stickers/random?tag=uh&api_key={{.api}}");
-    giphy.done(function(data) { 
+    giphy.done(function(data) {
       var sticker_url = data.data.image_url;
       $("#gif").attr('src', sticker_url);
       $("#gif").show();
