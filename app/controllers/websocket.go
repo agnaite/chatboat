@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/agnaite/chatboat/app/producer"
 	"github.com/revel/examples/chat/app/chatroom"
@@ -13,7 +14,8 @@ type WebSocket struct {
 }
 
 func (c WebSocket) Room(user string) revel.Result {
-	return c.Render(user)
+	api := os.Getenv("GIPHY_API")
+	return c.Render(user, api)
 }
 
 func (c WebSocket) Post(w http.ResponseWriter, r *http.Request) revel.Result {

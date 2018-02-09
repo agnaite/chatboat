@@ -52,14 +52,29 @@
     </div>
   </div>
 </div>
-<img id="gif" src="https://media2.giphy.com/media/26tPix0jJybZ8BFkc/giphy.gif">
+<img id="gif" src="">
 <script type="text/javascript">
+
+  function do_gif() {
+    var giphy = $.get("http://api.giphy.com/v1/stickers/random?tag=uh&api_key={{.api}}");
+    giphy.done(function(data) { 
+      var sticker_url = data.data.image_url;
+      $("#gif").attr('src', sticker_url);
+      $("#gif").show();
+      setTimeout(() => $("#gif").fadeOut(2000), 3000);
+    });
+  }
+
   // Create a socket
   var socket = new WebSocket('ws://'+window.location.host+'/websocket/room/socket?user={{.user}}')
   // Display a message
   var display = function(event) {
     $('#thread').append(tmpl('message_tmpl', {event: event}));
     $('#thread').scrollTo('max')
+    if (event.Text.toLowerCase() == "random gif ⛵️") {
+      do_gif()
+    }
+    console.log(event.Text)
   }
   //Message received on the socket
     socket.onmessage = function(event) {
