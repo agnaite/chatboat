@@ -25,6 +25,12 @@ func (c WebSocket) Post(w http.ResponseWriter, r *http.Request) revel.Result {
 	return nil
 }
 
+func (c WebSocket) SendMsg(user string, msg string, ws revel.ServerWebSocket) revel.Result {
+
+	chatroom.Say(user, msg)
+	return nil
+}
+
 func (c WebSocket) RoomSocket(user string, ws revel.ServerWebSocket) revel.Result {
 	// Make sure the websocket is valid.
 	if ws == nil {

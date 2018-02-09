@@ -12,9 +12,10 @@ GET     /                                       App.Index
 GET     /App/EnterChat                          App.EnterChat
 
 # Websockets
-POST    /websocket/Websocket/Post                         Websocket.Post
+POST    /websocket/Websocket/Post               Websocket.Post
 GET     /websocket/room                         WebSocket.Room
 WS      /websocket/room/socket                  WebSocket.RoomSocket
+WS      /websocket/room/send					Websocket.SendMsg
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -2,11 +2,12 @@ package consumer
 
 import (
 	"fmt"
-	"github.com/agnaite/chatboat/app/controllers"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/agnaite/chatboat/app/controllers"
+	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 func Consumer() {
