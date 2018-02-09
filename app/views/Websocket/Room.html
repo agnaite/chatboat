@@ -54,19 +54,14 @@
     $('#thread').append(tmpl('message_tmpl', {event: event}));
     $('#thread').scrollTo('max')
   }
-  // Message received on the socket
-  socket.onmessage = function(event) {
+  //Message received on the socket
+    socket.onmessage = function(event) {
     display(JSON.parse(event.data))
   }
   $('#send').click(function(e) {
-    //e.preventDefault()
     var message = $('#message').val()
-    $.post('Websocket/Post', {msg: message}, (r)=>{
-      console.log(r)
-    })
-
+    $.post('Websocket/Post', {msg: message}, (r)=>{})
     $('#message').val('')
-    // socket.send(JSON.stringify(message))
   });
   $('#message').keypress(function(e) {
     if(e.charCode == 13 || e.keyCode == 13) {
