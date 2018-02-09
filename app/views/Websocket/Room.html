@@ -1,10 +1,19 @@
 {{set . "title" "Chat room"}}
 {{template "header.html" .}}
 
-<h1>WebSocket — You are now chatting as {{.user}}
-  <a href="/">Leave the chat room</a></h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Chatboat
+      </a>
+     </div>
+     <p class="navbar-text">You are now chatting as {{.user}}</p>
+     <p class="navbar-text navbar-right"><a href="/" class="navbar-link">Leave the chat room</a></p>
+  </div>
+</nav>
 
-<div id="thread">
+<div id="thread" class="container">
   <script type="text/html" id="message_tmpl">
     {{raw "<%"}} if(event.Type == 'message') { %>
       <div class="message <%= event.User == '{{.user}}' ? 'you' : '' %>">
@@ -16,7 +25,6 @@
     {{raw "<%"}} } %>
     {{raw "<%"}} if(event.Type == 'join') { %>
       <div class="message notice">
-        <h2></h2>
         <p>
           {{raw "<%"}}= event.User %> joined the room
         </p>
@@ -24,7 +32,6 @@
     {{raw "<%"}} } %>
     {{raw "<%"}} if(event.Type == 'leave') { %>
       <div class="message notice">
-        <h2></h2>
         <p>
           {{raw "<%"}}= event.User %> left the room
         </p>
@@ -32,18 +39,18 @@
     {{raw "<%"}} } %>
     {{raw "<%"}} if(event.Type == 'quit') { %>
       <div class="message important">
-        <h2></h2>
         <p>
           You are now disconnected!
         </p>
       </div>
     {{raw "<%"}} } %>
   </script>
+  <div class="form-inline">
+    <div id="newMessage" class="container form-group">
+      <input type="text" id="message" autocomplete="off" class="form-control" autofocus>
+      <input type="submit" value="send" id="send" class="btn btn-default">
+    </div>
 </div>
-
-<div id="newMessage">
-  <input type="text" id="message" autocomplete="off" autofocus>
-  <input type="submit" value="send" id="send">
 </div>
 
 <script type="text/javascript">

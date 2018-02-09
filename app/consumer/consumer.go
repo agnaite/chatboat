@@ -14,7 +14,7 @@ func Consumer() {
 
 	broker := "localhost:9092"
 	group := "0"
-	topics := []string{"test"}
+	topics := []string{"chatboat"}
 
 	sigchan := make(chan os.Signal, 1)
 	signal.Notify(sigchan, syscall.SIGINT, syscall.SIGTERM)
